@@ -12,11 +12,20 @@ class Map
     end
     
     def delete(key)
-        @my_map.delete_if { |k, v| k == key }
-        @my_map
+        value = get(key)
+        @my_map.reject! { |k, v| k == key }
+        value
     end
     
     def show
-        @my_map.each { |k, v| puts "The Key is #{k} and value is #{v}" }
-    end    
+        deep_dup(my_map)
+    end
+
+  private
+
+  attr_reader :my_map
+  
+    def deep_dup(arr)
+        arr.map { |el| el.is_a?(Array) ? deep_dup(el) : el }
+    end  
 end    
