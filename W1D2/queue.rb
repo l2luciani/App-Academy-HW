@@ -14,4 +14,8 @@ class Queue
     def peek
         @queue.first
     end    
+
+    private
+
+    attr_reader :underlying_array
 end    
