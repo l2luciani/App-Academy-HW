@@ -4,9 +4,11 @@ class Map
     end
     
     def set(key, value)
+        @my_map << [key, value]
     end
     
     def get(key)
+        @my_map.each { |k, v| return v if key == k }
     end
     
     def delete(key)
