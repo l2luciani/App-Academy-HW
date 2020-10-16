@@ -6,5 +6,11 @@ class PolyTreeNode
         @children = []
     end    
 
+    def parent=(property)
+        unless property.nil?
+            @parent = property
+            @children << property
+        end    
+    end    
     
 end
